@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Row, Col, Card, Divider } from 'antd'
+import { Link } from 'react-router-dom'
 
 import mangaApi from '../../services'
 
@@ -23,7 +24,7 @@ const Latest = () => {
   }, [])
 
   return (
-    <Row gutter={6}>
+    <Row gutter={6} className='home__latest'>
       <Divider orientation='left'>Komik Terbaru</Divider>
 
       {state.loading === true ? (
@@ -32,14 +33,16 @@ const Latest = () => {
         </Col>
       ) : (
         state.comics.map((comic) => (
-          <Col className='gutter-row' span={6}>
-            <Card
-              hoverable
-              style={{ width: 240 }}
-              cover={<img alt={comic.title} src={comic.thumb} />}
-            >
-              <Meta title={comic.title} description={comic.chapter} />
-            </Card>
+          <Col key={comic.title} className='gutter-row' span={6}>
+            <Link to={`/${comic.endpoint}`}>
+              <Card
+                hoverable
+                className='home__latest-card'
+                cover={<img alt={comic.title} src={comic.thumb} />}
+              >
+                <Meta title={comic.title} description={comic.chapter} />
+              </Card>
+            </Link>
           </Col>
         ))
       )}

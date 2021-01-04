@@ -1,32 +1,53 @@
 import * as React from 'react'
-import { Layout, Menu } from 'antd'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Layout } from 'antd'
 
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
 import Latest from './components/Latest'
+import ComicDetail from './components/ComicDetail'
+import Footer from './components/Footer'
+
 import './App.css'
 
-function App() {
-  const { Content, Header, Footer } = Layout
+const { Content } = Layout
 
+function App() {
   return (
-    <Layout>
-      <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
-        <div className='logo' />
-        <Menu theme='dark' mode='horizontal'>
-          <Menu.Item key='1'>nav 1</Menu.Item>
-          <Menu.Item key='2'>nav 2</Menu.Item>
-          <Menu.Item key='3'>nav 3</Menu.Item>
-        </Menu>
-      </Header>
-      <Content
-        className='site-layout'
-        style={{ padding: '0 50px', marginTop: 64 }}
-      >
-        <Latest />
-      </Content>
-      <Footer style={{ textAlign: 'center' }}>
-        baca Komik ©2018 Created by Ant UED
-      </Footer>
-    </Layout>
+    <Router>
+      <Layout>
+        <Navbar />
+        {/* Switch */}
+        <Switch>
+          <Route exact path='/'>
+            <Hero />
+            <Content
+              className='site-layout'
+              style={{ padding: '0 50px', marginTop: 45 }}
+            >
+              <Latest />
+            </Content>
+          </Route>
+          <Route exact path='/about'>
+            <Content
+              className='site-layout'
+              style={{ padding: '0 50px', marginTop: 45 }}
+            >
+              About
+            </Content>
+          </Route>
+          <Route path='/:endpoint'>
+            <Content
+              className='site-layout'
+              style={{ padding: '0 50px', marginTop: 45 }}
+            >
+              <ComicDetail />
+            </Content>
+          </Route>
+        </Switch>
+        <Footer />
+      </Layout>
+    </Router>
   )
 }
 

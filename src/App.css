@@ -7,3 +7,35 @@
   margin: 16px 24px 16px 0;
   float: left;
 }
+
+.nav {
+  float: right;
+}
+
+.home__hero {
+  background-color: #002f5c;
+  height: 95vh;
+  padding: 0 !important;
+  padding: 0 50px !important;
+}
+
+.home__card {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+}
+
+.home_card-title {
+  color: #fff !important;
+  font-size: 4rem !important;
+}
+
+.home_card-paragraph {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem !important;
+}
+
+.home__latest-card {
+  width: 15rem !important;
+}
