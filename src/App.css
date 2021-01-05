@@ -36,6 +36,18 @@
   margin-bottom: 2.5rem !important;
 }
 
+.home__latest-title {
+  font-weight: bold !important;
+}
+
 .home__latest-card {
+  width: 15rem !important;
+}
+
+.comicDetail {
+  margin-top: 2rem;
+}
+
+.home__genre-card {
   width: 15rem !important;
 }

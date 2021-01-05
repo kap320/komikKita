@@ -5,9 +5,11 @@ import { Layout } from 'antd'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Latest from './components/Latest'
+import Genre from './components/Genre'
 import ComicDetail from './components/ComicDetail'
 import Footer from './components/Footer'
 
+import 'react-alice-carousel/lib/alice-carousel.css'
 import './App.css'
 
 const { Content } = Layout
@@ -23,23 +25,24 @@ function App() {
             <Hero />
             <Content
               className='site-layout'
-              style={{ padding: '0 50px', marginTop: 45 }}
+              style={{ padding: '0 50px', marginTop: 50 }}
             >
               <Latest />
+              <Genre />
             </Content>
           </Route>
           <Route exact path='/about'>
             <Content
               className='site-layout'
-              style={{ padding: '0 50px', marginTop: 45 }}
+              style={{ padding: '0 50px', marginTop: 50 }}
             >
               About
             </Content>
           </Route>
-          <Route path='/:endpoint'>
+          <Route path='/detail/:endpoint'>
             <Content
               className='site-layout'
-              style={{ padding: '0 50px', marginTop: 45 }}
+              style={{ padding: '0 50px', marginTop: 50 }}
             >
               <ComicDetail />
             </Content>

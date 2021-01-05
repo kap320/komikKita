@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Row, Col, Card, Divider } from 'antd'
 import { Link } from 'react-router-dom'
+import AliceCarousel from 'react-alice-carousel'
 
 import mangaApi from '../../services'
 
@@ -13,8 +14,7 @@ const Latest = () => {
     async function fetch() {
       try {
         const comics = await mangaApi.getLatestManga()
-        const newComics = comics.slice(0, 4)
-        setState({ loading: false, comics: newComics })
+        setState({ loading: false, comics })
       } catch (err) {
         return
       }
@@ -23,28 +23,55 @@ const Latest = () => {
     fetch()
   }, [])
 
+  const items = state.comics.map((comic) => [
+    <Col key={comic.title} className='gutter-row' span={6}>
+      <Link to={`/detail/${comic.endpoint}`}>
+        <Card
+          hoverable
+          className='home__latest-card'
+          cover={<img alt={comic.title} src={comic.thumb} />}
+        >
+          <Meta title={comic.title} description={comic.chapter} />
+        </Card>
+      </Link>
+    </Col>,
+  ])
+
+  const responsive = {
+    0: { items: 1 },
+    568: { items: 2 },
+    1024: { items: 4 },
+  }
+
   return (
-    <Row gutter={6} className='home__latest'>
-      <Divider orientation='left'>Komik Terbaru</Divider>
+    <Row gutter={16} className='home__latest'>
+      <Divider className='home__latest-title' orientation='left'>
+        Komik Terbaru
+      </Divider>
 
       {state.loading === true ? (
-        <Col className='gutter-row' span={6}>
-          <Card hoverable loading={true} style={{ width: 240 }}></Card>
-        </Col>
-      ) : (
-        state.comics.map((comic) => (
-          <Col key={comic.title} className='gutter-row' span={6}>
-            <Link to={`/${comic.endpoint}`}>
-              <Card
-                hoverable
-                className='home__latest-card'
-                cover={<img alt={comic.title} src={comic.thumb} />}
-              >
-                <Meta title={comic.title} description={comic.chapter} />
-              </Card>
-            </Link>
+        <>
+          <Col className='gutter-row' span={6}>
+            <Card hoverable loading={true} style={{ width: 240 }}></Card>
           </Col>
-        ))
+          <Col className='gutter-row' span={6}>
+            <Card hoverable loading={true} style={{ width: 240 }}></Card>
+          </Col>
+          <Col className='gutter-row' span={6}>
+            <Card hoverable loading={true} style={{ width: 240 }}></Card>
+          </Col>
+          <Col className='gutter-row' span={6}>
+            <Card hoverable loading={true} style={{ width: 240 }}></Card>
+          </Col>
+        </>
+      ) : (
+        <AliceCarousel
+          disableButtonsControls
+          mouseTracking
+          responsive={responsive}
+          infinite
+          items={items}
+        />
       )}
     </Row>
   )
