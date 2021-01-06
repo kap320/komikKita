@@ -44,10 +44,29 @@
   width: 15rem !important;
 }
 
-.comicDetail {
-  margin-top: 2rem;
-}
-
 .home__genre-card {
   width: 15rem !important;
+}
+
+.comicDetail {
+  margin-top: 2rem;
+  min-height: 100vh;
+}
+
+.comicDetail__genre {
+  color: #1d8efb !important;
+  font-size: 1.15rem !important;
+}
+
+.comicDetail__author {
+  font-size: 1.15rem !important;
+}
+
+.comicDetail_skeleton {
+  margin-top: 6rem;
+  min-height: 80vh;
+}
+
+.comicDetail_header {
+  margin-bottom: 2rem !important;
 }

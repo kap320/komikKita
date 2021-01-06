@@ -1,8 +1,11 @@
 import * as React from 'react'
 import { useParams } from 'react-router-dom'
-import { Row, Col, Image, Skeleton } from 'antd'
+import { Row, Col, Image, Skeleton, Typography, Space } from 'antd'
 
 import mangaApi from '../../services'
+import ComicDetailTabs from '../ComicDetailTabs'
+
+const { Title, Text } = Typography
 
 function ComicDetail() {
   const { endpoint } = useParams()
@@ -14,6 +17,12 @@ function ComicDetail() {
       try {
         const manga = await mangaApi.getDetailManga(endpoint)
 
+        if (manga.title === '') {
+          const manga = await mangaApi.getDetailManga(endpoint)
+
+          return setState({ loading: false, manga })
+        }
+
         return setState({ loading: false, manga })
       } catch (err) {
         return
@@ -24,21 +33,46 @@ function ComicDetail() {
   }, [endpoint])
 
   return (
-    <Row gutter={6} className='comicDetail'>
+    <>
       {state.loading === true ? (
-        <Skeleton />
+        <div className='comicDetail_skeleton'>
+          <Row gutter={6}>
+            <Col className='gutter-row' span={16} offset={4}>
+              <Skeleton avatar />
+            </Col>
+          </Row>
+          <Row gutter={6}>
+            <Col className='gutter-row' span={16} offset={4}>
+              <Skeleton />
+            </Col>
+          </Row>
+        </div>
       ) : (
-        <>
-          <Col className='gutter-row' span={8}>
-            <Image width={300} src={`${state.manga.thumb}`} />
-          </Col>
-          <Col className span={8} offset={8}>
-            <p>Nama : {state.manga.title}</p>
-            <p>Type : {state.manga.type}</p>
-          </Col>
-        </>
+        <div className='comicDetail'>
+          <Row gutter={6} className='comicDetail_header'>
+            <Col className='gutter-row' span={4} offset={4}>
+              <Image width={200} src={`${state.manga.thumb}`} />
+            </Col>
+            <Col className span={8} offset={1}>
+              <Title level={2}> {state.manga.title}</Title>
+              <Space direction='vertical'>
+                <Text className='comicDetail__genre'>
+                  {state.manga.genre_list[0].genre_name}
+                </Text>
+                <Text className='comicDetail__author' type='secondary'>
+                  Author : {state.manga.author}
+                </Text>
+              </Space>
+            </Col>
+          </Row>
+          <Row gutter={6}>
+            <Col className='gutter-row' span={16} offset={4}>
+              <ComicDetailTabs synopsis={state.manga.synopsis} />
+            </Col>
+          </Row>
+        </div>
       )}
-    </Row>
+    </>
   )
 }
 
