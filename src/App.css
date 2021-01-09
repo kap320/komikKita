@@ -70,3 +70,11 @@
 .comicDetail_header {
   margin-bottom: 2rem !important;
 }
+
+.comicDetail__chapters {
+  font-size: 1rem !important;
+}
+
+.comicDetail__chapters:hover {
+  color: #1d8efb !important;
+}
