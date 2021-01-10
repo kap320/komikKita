@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const { TabPane } = Tabs
 const { Paragraph, Text } = Typography
 
-const ComicDetailTabs = ({ synopsis, chapters }) => {
+const ComicDetailTabs = ({ synopsis, chapters, endpoint }) => {
   return (
     <Tabs defaultActiveKey='1' size='large'>
       <TabPane tab='Synopsis' key='1'>
@@ -17,7 +17,7 @@ const ComicDetailTabs = ({ synopsis, chapters }) => {
           dataSource={chapters}
           renderItem={(chapter) => (
             <List.Item>
-              <Link to={`/chapter/${chapter.chapter_endpoint}`}>
+              <Link to={`/${endpoint}/chapter/${chapter.chapter_endpoint}`}>
                 <Text className='comicDetail__chapters'>
                   {chapter.chapter_title}
                 </Text>

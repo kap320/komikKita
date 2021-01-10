@@ -48,7 +48,7 @@ function App() {
               <ComicDetail />
             </Content>
           </Route>
-          <Route path='/chapter/:endpoint'>
+          <Route path='/:manga/chapter/:endpoint'>
             <Content
               className='site-layout'
               style={{ padding: '0 50px', marginTop: 50 }}
