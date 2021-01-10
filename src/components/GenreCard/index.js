@@ -32,7 +32,7 @@ const GenreCard = ({ genre, backgroundColor }) => {
       <Col className='gutter-row' span={6}>
         <Card
           title={genre}
-          extra={<a href='#'>More</a>}
+          extra={<Link href='#'>More</Link>}
           style={{ width: 250, backgroundColor: `${backgroundColor}` }}
           headStyle={{
             border: 'none',

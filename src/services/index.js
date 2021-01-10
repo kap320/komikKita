@@ -32,6 +32,16 @@ class mangaApi {
       return err
     }
   }
+
+  static getMangaChapter = async (endpoint) => {
+    try {
+      const res = await axios.get(`${baseUrl}/chapter/${endpoint}`)
+
+      return res.data
+    } catch (err) {
+      return err
+    }
+  }
 }
 
 export default mangaApi

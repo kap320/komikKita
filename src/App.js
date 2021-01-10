@@ -7,6 +7,7 @@ import Hero from './components/Hero'
 import Latest from './components/Latest'
 import Genre from './components/Genre'
 import ComicDetail from './components/ComicDetail'
+import Chapter from './components/Chapter'
 import Footer from './components/Footer'
 
 import 'react-alice-carousel/lib/alice-carousel.css'
@@ -45,6 +46,14 @@ function App() {
               style={{ padding: '0 50px', marginTop: 50 }}
             >
               <ComicDetail />
+            </Content>
+          </Route>
+          <Route path='/chapter/:endpoint'>
+            <Content
+              className='site-layout'
+              style={{ padding: '0 50px', marginTop: 50 }}
+            >
+              <Chapter />
             </Content>
           </Route>
         </Switch>

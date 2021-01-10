@@ -17,7 +17,7 @@ const ComicDetailTabs = ({ synopsis, chapters }) => {
           dataSource={chapters}
           renderItem={(chapter) => (
             <List.Item>
-              <Link to='#'>
+              <Link to={`/chapter/${chapter.chapter_endpoint}`}>
                 <Text className='comicDetail__chapters'>
                   {chapter.chapter_title}
                 </Text>

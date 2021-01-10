@@ -57,7 +57,9 @@ function ComicDetail() {
               <Title level={2}> {state.manga.title}</Title>
               <Space direction='vertical'>
                 <Text className='comicDetail__genre'>
-                  {state.manga.genre_list[0].genre_name}
+                  {state.manga.genre_list
+                    ? state.manga.genre_list[0].genre_name
+                    : ''}
                 </Text>
                 <Text className='comicDetail__author' type='secondary'>
                   Author : {state.manga.author}
