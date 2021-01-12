@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Row, Card, Col, Divider } from 'antd'
+import { Row, Card, Col } from 'antd'
+import { CaretRightOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 
 import mangaApi from '../../services'
@@ -25,22 +26,24 @@ const GenreCard = ({ genre, backgroundColor }) => {
   }, [genre])
 
   return (
-    <Row gutter={16}>
-      <Divider className='home__latest-title' orientation='left'>
-        Genre
-      </Divider>
+    <Row gutter={16} className='genreCard'>
       <Col className='gutter-row' span={6}>
         <Card
           title={genre}
-          extra={<Link href='#'>More</Link>}
+          extra={
+            <Link href='#'>
+              <CaretRightOutlined className='genreCard__arrow' />
+            </Link>
+          }
           style={{ width: 250, backgroundColor: `${backgroundColor}` }}
           headStyle={{
             border: 'none',
             color: '#fff',
+            fontWeight: 'bold',
             height: '6.8rem',
           }}
         >
-          <p>Card content</p>
+          <p className='genreCard__subtitle'>Card content</p>
         </Card>
       </Col>
       {state.loading ? (

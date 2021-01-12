@@ -68,7 +68,7 @@ function ComicDetail() {
             </Col>
           </Row>
           <Row gutter={6}>
-            <Col className='gutter-row' span={16} offset={4}>
+            <Col className='gutter-row' span={13} offset={4}>
               <ComicDetailTabs
                 endpoint={endpoint}
                 synopsis={state.manga.synopsis}

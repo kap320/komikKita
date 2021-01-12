@@ -34,7 +34,7 @@ const Chapter = () => {
       {state.loading === true ? (
         <div className='comicDetail_skeleton'>
           <Row gutter={6}>
-            <Col className='gutter-row' span={16} offset={4}>
+            <Col className='gutter-row' span={16}>
               <Skeleton />
             </Col>
           </Row>
@@ -42,7 +42,7 @@ const Chapter = () => {
       ) : (
         <>
           <Row gutter={24}>
-            <Col className='gutter-row' span={16} offset={5}>
+            <Col className='gutter-row' span={16} offset={4}>
               <Breadcrumb style={{ margin: '16px 0' }}>
                 <Breadcrumb.Item>
                   <Link to='/'>Home</Link>
@@ -55,7 +55,7 @@ const Chapter = () => {
             </Col>
           </Row>
           <Row gutter={24}>
-            <Col className='gutter-row' span={16} offset={5}>
+            <Col className='gutter-row' span={16} offset={4}>
               <List
                 grid={{ gutter: 16, column: 1 }}
                 dataSource={state.chapters.chapter_image}

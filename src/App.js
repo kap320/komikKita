@@ -3,9 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Layout } from 'antd'
 
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Latest from './components/Latest'
-import Genre from './components/Genre'
+import Home from './pages/Home'
 import ComicDetail from './components/ComicDetail'
 import Chapter from './components/Chapter'
 import Footer from './components/Footer'
@@ -23,14 +21,7 @@ function App() {
         {/* Switch */}
         <Switch>
           <Route exact path='/'>
-            <Hero />
-            <Content
-              className='site-layout'
-              style={{ padding: '0 50px', marginTop: 50 }}
-            >
-              <Latest />
-              <Genre />
-            </Content>
+            <Home />
           </Route>
           <Route exact path='/about'>
             <Content

@@ -3,8 +3,7 @@
 .logo {
   width: 120px;
   height: 31px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 16px 24px 16px 0;
+  color: #fff;
   float: left;
 }
 
@@ -77,4 +76,16 @@
 
 .comicDetail__chapters:hover {
   color: #1d8efb !important;
+}
+
+.genreCard {
+  margin-bottom: 4rem;
+}
+
+.genreCard__arrow {
+  color: #fff;
+}
+
+.genreCard__subtitle {
+  color: #fff;
 }
