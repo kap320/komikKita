@@ -70,7 +70,13 @@
   margin-bottom: 2rem !important;
 }
 
+.comicDetail__synopsis {
+  color: #595959;
+  font-size: 1.06rem !important;
+}
+
 .comicDetail__chapters {
+  color: #595959;
   font-size: 1rem !important;
 }
 

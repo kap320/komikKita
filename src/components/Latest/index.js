@@ -1,41 +1,50 @@
 import * as React from 'react'
-import { Row, Col, Card, Divider } from 'antd'
+import { Row, Col, Card, Divider, Alert } from 'antd'
 import { Link } from 'react-router-dom'
 import AliceCarousel from 'react-alice-carousel'
+
+import 'react-alice-carousel/lib/alice-carousel.css'
 
 import mangaApi from '../../services'
 
 const { Meta } = Card
 
 const Latest = () => {
-  const [state, setState] = React.useState({ loading: true, comics: [] })
+  const [state, setState] = React.useState({
+    loading: true,
+    comics: [],
+    error: null,
+  })
 
   React.useEffect(() => {
     async function fetch() {
       try {
         const comics = await mangaApi.getLatestManga()
+
         setState({ loading: false, comics })
-      } catch (err) {
-        return
+      } catch (error) {
+        return setState({ loading: false, error })
       }
     }
 
     fetch()
   }, [])
 
-  const items = state.comics.map((comic) => [
-    <Col key={comic.title} className='gutter-row' span={6}>
-      <Link to={`/detail/${comic.endpoint}`}>
-        <Card
-          hoverable
-          className='home__latest-card'
-          cover={<img alt={comic.title} src={comic.thumb} />}
-        >
-          <Meta title={comic.title} description={comic.chapter} />
-        </Card>
-      </Link>
-    </Col>,
-  ])
+  const items = state.comics
+    ? state.comics.map((comic) => [
+        <Col key={comic.title} className='gutter-row' span={6}>
+          <Link to={`/detail/${comic.endpoint}`}>
+            <Card
+              hoverable
+              className='home__latest-card'
+              cover={<img alt={comic.title} src={comic.thumb} />}
+            >
+              <Meta title={comic.title} description={comic.chapter} />
+            </Card>
+          </Link>
+        </Col>,
+      ])
+    : []
 
   const responsive = {
     0: { items: 1 },
@@ -64,6 +73,15 @@ const Latest = () => {
             <Card hoverable loading={true} style={{ width: 240 }}></Card>
           </Col>
         </>
+      ) : state.error ? (
+        <Col className='gutter-row' span={6}>
+          <Alert
+            message='Error'
+            description='Error please check your internet'
+            type='error'
+            showIcon
+          />
+        </Col>
       ) : (
         <AliceCarousel
           disableButtonsControls

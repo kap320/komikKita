@@ -8,7 +8,6 @@ import ComicDetail from './components/ComicDetail'
 import Chapter from './components/Chapter'
 import Footer from './components/Footer'
 
-import 'react-alice-carousel/lib/alice-carousel.css'
 import './App.css'
 
 const { Content } = Layout
@@ -18,7 +17,6 @@ function App() {
     <Router>
       <Layout>
         <Navbar />
-        {/* Switch */}
         <Switch>
           <Route exact path='/'>
             <Home />

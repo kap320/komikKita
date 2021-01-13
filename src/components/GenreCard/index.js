@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Row, Card, Col } from 'antd'
+import { Row, Card, Col, Alert } from 'antd'
 import { CaretRightOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 
@@ -8,7 +8,11 @@ import mangaApi from '../../services'
 const { Meta } = Card
 
 const GenreCard = ({ genre, backgroundColor }) => {
-  const [state, setState] = React.useState({ loading: true, comics: [] })
+  const [state, setState] = React.useState({
+    loading: true,
+    comics: [],
+    error: null,
+  })
 
   React.useEffect(() => {
     async function fetch() {
@@ -17,8 +21,8 @@ const GenreCard = ({ genre, backgroundColor }) => {
         const comics = comic.manga_list.slice(0, 3)
 
         setState({ loading: false, comics })
-      } catch (err) {
-        return
+      } catch (error) {
+        return setState({ loading: false, error })
       }
     }
 
@@ -58,6 +62,15 @@ const GenreCard = ({ genre, backgroundColor }) => {
             <Card hoverable loading={true} style={{ width: 240 }}></Card>
           </Col>
         </>
+      ) : state.error ? (
+        <Col className='gutter-row' span={6}>
+          <Alert
+            message='Error'
+            description='Error please check your internet'
+            type='error'
+            showIcon
+          />
+        </Col>
       ) : (
         state.comics.map((comic) => (
           <Col key={comic.title} className='gutter-row' span={6}>

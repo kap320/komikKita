@@ -49,7 +49,7 @@ function ComicDetail() {
         </div>
       ) : (
         <div className='comicDetail'>
-          <Row gutter={6} className='comicDetail_header'>
+          <Row gutter={7} className='comicDetail_header'>
             <Col className='gutter-row' span={4} offset={4}>
               <Image width={200} src={`${state.manga.thumb}`} />
             </Col>
@@ -68,7 +68,7 @@ function ComicDetail() {
             </Col>
           </Row>
           <Row gutter={6}>
-            <Col className='gutter-row' span={13} offset={4}>
+            <Col className='gutter-row' span={15} offset={4}>
               <ComicDetailTabs
                 endpoint={endpoint}
                 synopsis={state.manga.synopsis}

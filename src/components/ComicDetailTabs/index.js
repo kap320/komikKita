@@ -9,7 +9,7 @@ const ComicDetailTabs = ({ synopsis, chapters, endpoint }) => {
   return (
     <Tabs defaultActiveKey='1' size='large'>
       <TabPane tab='Synopsis' key='1'>
-        <Paragraph>{synopsis}</Paragraph>
+        <Paragraph className='comicDetail__synopsis'>{synopsis}</Paragraph>
       </TabPane>
       <TabPane tab='Chapter' key='2'>
         <List
