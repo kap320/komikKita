@@ -17,3 +17,5 @@ Di project ini menggunakan API opensource dari : https://github.com/febryardians
 - [ ] list of genre
 - [ ] Read last chapter opened
 - [ ] Search Manga by name and Genres
+- [ ] Show comic suggestion
+- [ ] Randomize genre card
