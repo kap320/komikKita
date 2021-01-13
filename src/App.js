@@ -4,7 +4,7 @@ import { Layout } from 'antd'
 
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
-import ComicDetail from './components/ComicDetail'
+import MangaDetail from './pages/MangaDetail'
 import Chapter from './components/Chapter'
 import Footer from './components/Footer'
 
@@ -30,12 +30,7 @@ function App() {
             </Content>
           </Route>
           <Route path='/detail/:endpoint'>
-            <Content
-              className='site-layout'
-              style={{ padding: '0 50px', marginTop: 50 }}
-            >
-              <ComicDetail />
-            </Content>
+            <MangaDetail />
           </Route>
           <Route path='/:manga/chapter/:endpoint'>
             <Content
