@@ -37,7 +37,7 @@ const GenreCard = ({ genre, backgroundColor }) => {
         <Card
           title={genre}
           extra={
-            <Link to='#'>
+            <Link to={`/genres/${genre.toLowerCase()}`}>
               <CaretRightOutlined className='genreCard__arrow' />
             </Link>
           }

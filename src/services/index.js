@@ -23,9 +23,9 @@ class mangaApi {
     }
   }
 
-  static getMangaByGenre = async (genre) => {
+  static getMangaByGenre = async (genre, page = 1) => {
     try {
-      const res = await axios.get(`${baseUrl}/genres/${genre}/1`)
+      const res = await axios.get(`${baseUrl}/genres/${genre}/${page}`)
 
       return res.data
     } catch (err) {

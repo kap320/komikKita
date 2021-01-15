@@ -1,17 +1,20 @@
 import * as React from 'react'
 import Layout from 'antd/lib/layout'
+import { useParams } from 'react-router-dom'
 
-import ComicDetail from '../../components/ComicDetail'
+import GenreList from '../../components/GenreList'
 
-const MangaDetail = () => {
+const Genre = () => {
+  const { genre } = useParams()
+
   return (
     <Layout.Content
       className='site-layout'
       style={{ padding: '0 50px', marginTop: 50 }}
     >
-      <ComicDetail />
+      <GenreList genre={genre} />
     </Layout.Content>
   )
 }
 
-export default MangaDetail
+export default Genre

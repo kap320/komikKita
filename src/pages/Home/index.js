@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Layout } from 'antd'
+import Layout from 'antd/lib/layout'
 
 import Hero from '../../components/Hero'
 import Latest from '../../components/Latest'

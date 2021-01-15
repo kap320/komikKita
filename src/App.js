@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import MangaDetail from './pages/MangaDetail'
 import Chapter from './components/Chapter'
+import Genre from './pages/Genre'
 import Footer from './components/Footer'
 
 import './App.css'
@@ -39,6 +40,9 @@ function App() {
             >
               <Chapter />
             </Content>
+          </Route>
+          <Route path='/genres/:genre'>
+            <Genre />
           </Route>
         </Switch>
         <Footer />

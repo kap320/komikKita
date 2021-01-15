@@ -14,7 +14,7 @@ Di project ini menggunakan API opensource dari : https://github.com/febryardians
 - [x] Comic Detail
 - [x] Comic Chapter
 - [ ] All genres list
-- [ ] list of genre
+- [x] list of genre
 - [ ] Read last chapter opened
 - [ ] Search Manga by name and Genres
 - [ ] Show comic suggestion
