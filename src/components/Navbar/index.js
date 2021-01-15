@@ -2,6 +2,8 @@ import * as React from 'react'
 import { Link } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
 
+import './style.css'
+
 const { Header } = Layout
 
 const Navbar = () => {

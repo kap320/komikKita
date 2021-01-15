@@ -1,0 +1,22 @@
+.hero {
+  background-color: #002f5c;
+  height: 95vh;
+  padding: 0 !important;
+  padding: 0 50px !important;
+}
+
+.hero__card {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.hero__card-title {
+  color: #fff !important;
+  font-size: 4rem !important;
+}
+
+.hero__card-paragraph {
+  color: #fff !important;
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem !important;
+}

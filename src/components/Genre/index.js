@@ -3,6 +3,8 @@ import { Divider } from 'antd'
 
 import GenreCard from '../GenreCard'
 
+import './style.css'
+
 const Genre = () => {
   return (
     <>

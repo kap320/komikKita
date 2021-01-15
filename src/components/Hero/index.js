@@ -1,18 +1,20 @@
 import * as React from 'react'
 import { Row, Col, Card, Button, Space, Typography } from 'antd'
 
+import './style.css'
+
 const Hero = () => {
   const { Title, Paragraph } = Typography
 
   return (
-    <Row className='home__hero'>
+    <Row className='hero'>
       <Space align='center'>
         <Col span={24}>
-          <Card className='home__card' style={{ width: 500 }}>
-            <Title level={1} className='home_card-title'>
+          <Card className='hero__card' style={{ width: 500 }}>
+            <Title level={1} className='hero__card-title'>
               Card content
             </Title>
-            <Paragraph className='home_card-paragraph'>
+            <Paragraph className='hero__card-paragraph'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
               bibendum quam non nisi lobortis, a gravida purus faucibus. Nullam
               accumsan ligula sagittis tincidunt posuere. Nulla.

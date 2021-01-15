@@ -1,0 +1,14 @@
+.genreCard {
+  margin-bottom: 4rem !important;
+}
+.genre__card {
+  width: 15rem !important;
+}
+
+.genreCard__arrow {
+  color: #fff !important;
+}
+
+.genreCard__subtitle {
+  color: #fff;
+}

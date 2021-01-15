@@ -7,6 +7,8 @@ import 'react-alice-carousel/lib/alice-carousel.css'
 
 import mangaApi from '../../services'
 
+import './style.css'
+
 const { Meta } = Card
 
 const Latest = () => {
@@ -36,7 +38,7 @@ const Latest = () => {
           <Link to={`/detail/${comic.endpoint}`}>
             <Card
               hoverable
-              className='home__latest-card'
+              className='latest__card'
               cover={<img alt={comic.title} src={comic.thumb} />}
             >
               <Meta title={comic.title} description={comic.chapter} />
@@ -53,8 +55,8 @@ const Latest = () => {
   }
 
   return (
-    <Row gutter={16} className='home__latest'>
-      <Divider className='home__latest-title' orientation='left'>
+    <Row gutter={16} className='latest'>
+      <Divider className='latest__title' orientation='left'>
         Komik Terbaru
       </Divider>
 

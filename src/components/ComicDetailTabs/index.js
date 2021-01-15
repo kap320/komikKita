@@ -2,6 +2,8 @@ import * as React from 'react'
 import { Tabs, Typography, List } from 'antd'
 import { Link } from 'react-router-dom'
 
+import './style.css'
+
 const { TabPane } = Tabs
 const { Paragraph, Text } = Typography
 
@@ -9,7 +11,7 @@ const ComicDetailTabs = ({ synopsis, chapters, endpoint }) => {
   return (
     <Tabs defaultActiveKey='1' size='large'>
       <TabPane tab='Synopsis' key='1'>
-        <Paragraph className='comicDetail__synopsis'>{synopsis}</Paragraph>
+        <Paragraph className='comicDetailTabs__synopsis'>{synopsis}</Paragraph>
       </TabPane>
       <TabPane tab='Chapter' key='2'>
         <List
@@ -18,7 +20,7 @@ const ComicDetailTabs = ({ synopsis, chapters, endpoint }) => {
           renderItem={(chapter) => (
             <List.Item>
               <Link to={`/${endpoint}/chapter/${chapter.chapter_endpoint}`}>
-                <Text className='comicDetail__chapters'>
+                <Text className='comicDetailTabs__chapters'>
                   {chapter.chapter_title}
                 </Text>
               </Link>

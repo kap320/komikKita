@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 
 import mangaApi from '../../services'
 
+import './style.css'
+
 const { Meta } = Card
 
 const GenreCard = ({ genre, backgroundColor }) => {
@@ -77,7 +79,7 @@ const GenreCard = ({ genre, backgroundColor }) => {
             <Link to={`/detail/${comic.endpoint}`}>
               <Card
                 hoverable
-                className='home__genre-card'
+                className='genre__card'
                 cover={<img alt={comic.title} src={comic.thumb} />}
               >
                 <Meta title={comic.title} description={comic.chapter} />

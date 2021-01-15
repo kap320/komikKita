@@ -1,0 +1,36 @@
+.comicDetail {
+  margin-top: 2rem;
+  min-height: 100vh;
+}
+
+.comicDetail__genre {
+  color: #1d8efb !important;
+  font-size: 1.15rem !important;
+}
+
+.comicDetail__author {
+  font-size: 1.15rem !important;
+}
+
+.comicDetail__skeleton {
+  margin-top: 6rem;
+  min-height: 80vh;
+}
+
+.comicDetail__header {
+  margin-bottom: 2rem !important;
+}
+
+.comicDetail__synopsis {
+  color: #595959;
+  font-size: 1.06rem !important;
+}
+
+.comicDetail__chapters {
+  color: #595959;
+  font-size: 1rem !important;
+}
+
+.comicDetail__chapters:hover {
+  color: #1d8efb !important;
+}

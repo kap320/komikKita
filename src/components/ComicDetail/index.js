@@ -5,6 +5,8 @@ import { Row, Col, Image, Skeleton, Typography, Space } from 'antd'
 import mangaApi from '../../services'
 import ComicDetailTabs from '../ComicDetailTabs'
 
+import './style.css'
+
 const { Title, Text } = Typography
 
 function ComicDetail() {
@@ -35,7 +37,7 @@ function ComicDetail() {
   return (
     <>
       {state.loading === true ? (
-        <div className='comicDetail_skeleton'>
+        <div className='comicDetail__skeleton'>
           <Row gutter={6}>
             <Col className='gutter-row' span={16} offset={4}>
               <Skeleton avatar />
@@ -49,7 +51,7 @@ function ComicDetail() {
         </div>
       ) : (
         <div className='comicDetail'>
-          <Row gutter={7} className='comicDetail_header'>
+          <Row gutter={7} className='comicDetail__header'>
             <Col className='gutter-row' span={4} offset={4}>
               <Image width={200} src={`${state.manga.thumb}`} />
             </Col>
