@@ -2,7 +2,13 @@
   width: 120px;
   height: 31px;
   color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
   float: left;
+}
+
+.logo:hover {
+  color: #1d8efb;
 }
 
 .nav {

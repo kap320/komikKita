@@ -1,13 +1,12 @@
 import * as React from 'react'
-import { useParams } from 'react-router-dom'
 import { Row, Col, Image, Skeleton, Typography, Space } from 'antd'
+import { useParams } from 'react-router-dom'
 
 import mangaApi from '../../services'
+
 import ComicDetailTabs from '../ComicDetailTabs'
 
 import './style.css'
-
-const { Title, Text } = Typography
 
 function ComicDetail() {
   const { endpoint } = useParams()
@@ -53,19 +52,27 @@ function ComicDetail() {
         <div className='comicDetail'>
           <Row gutter={7} className='comicDetail__header'>
             <Col className='gutter-row' span={4} offset={4}>
-              <Image width={200} src={`${state.manga.thumb}`} />
+              <Image width={200} src={state.manga.thumb} />
             </Col>
             <Col className span={8} offset={1}>
-              <Title level={2}> {state.manga.title}</Title>
+              <Typography.Title level={2}>
+                {' '}
+                {state.manga.title}
+              </Typography.Title>
               <Space direction='vertical'>
-                <Text className='comicDetail__genre'>
+                <Typography.Text className='comicDetail__genre'>
                   {state.manga.genre_list
-                    ? state.manga.genre_list[0].genre_name
+                    ? state.manga.genre_list.map(
+                        (genre) => `${genre.genre_name}    `
+                      )
                     : ''}
-                </Text>
-                <Text className='comicDetail__author' type='secondary'>
+                </Typography.Text>
+                <Typography.Text
+                  className='comicDetail__author'
+                  type='secondary'
+                >
                   Author : {state.manga.author}
-                </Text>
+                </Typography.Text>
               </Space>
             </Col>
           </Row>
@@ -75,6 +82,7 @@ function ComicDetail() {
                 endpoint={endpoint}
                 synopsis={state.manga.synopsis}
                 chapters={state.manga.chapter}
+                genre={state.manga.genre_list}
               />
             </Col>
           </Row>

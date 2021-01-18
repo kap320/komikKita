@@ -4,15 +4,13 @@ import { Layout, Menu } from 'antd'
 
 import './style.css'
 
-const { Header } = Layout
-
 const Navbar = () => {
   return (
-    <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+    <Layout.Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
       <Link to='/'>
         <h2 className='logo'>Komik Kita</h2>
       </Link>
-      <Menu className='nav' theme='dark' mode='horizontal'>
+      <Menu className='nav navbar__item' theme='dark' mode='horizontal'>
         <Menu.Item key='1'>
           <Link to='/'>Home</Link>
         </Menu.Item>
@@ -22,7 +20,7 @@ const Navbar = () => {
         <Menu.Item key='3'>nav 2</Menu.Item>
         <Menu.Item key='4'>nav 3</Menu.Item>
       </Menu>
-    </Header>
+    </Layout.Header>
   )
 }
 

@@ -8,7 +8,7 @@ import './style.css'
 const Genre = () => {
   return (
     <>
-      <Divider className='home__latest-title' orientation='left'>
+      <Divider className='genre__heading' orientation='left'>
         Genre
       </Divider>
       <GenreCard genre='Action' backgroundColor='#9271E9' />

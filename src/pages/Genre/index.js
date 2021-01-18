@@ -10,7 +10,7 @@ const Genre = () => {
   return (
     <Layout.Content
       className='site-layout'
-      style={{ padding: '0 50px', marginTop: 50 }}
+      style={{ padding: '0 6rem', marginTop: 50 }}
     >
       <GenreList genre={genre} />
     </Layout.Content>

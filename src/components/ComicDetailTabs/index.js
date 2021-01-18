@@ -4,30 +4,29 @@ import { Link } from 'react-router-dom'
 
 import './style.css'
 
-const { TabPane } = Tabs
-const { Paragraph, Text } = Typography
-
-const ComicDetailTabs = ({ synopsis, chapters, endpoint }) => {
+const ComicDetailTabs = ({ synopsis, chapters, endpoint, genre }) => {
   return (
     <Tabs defaultActiveKey='1' size='large'>
-      <TabPane tab='Synopsis' key='1'>
-        <Paragraph className='comicDetailTabs__synopsis'>{synopsis}</Paragraph>
-      </TabPane>
-      <TabPane tab='Chapter' key='2'>
+      <Tabs.TabPane tab='Synopsis' key='1'>
+        <Typography.Paragraph className='comicDetailTabs__synopsis'>
+          {synopsis}
+        </Typography.Paragraph>
+      </Tabs.TabPane>
+      <Tabs.TabPane tab='Chapter' key='2'>
         <List
           grid={{ gutter: 16, column: 2 }}
           dataSource={chapters}
           renderItem={(chapter) => (
             <List.Item>
               <Link to={`/${endpoint}/chapter/${chapter.chapter_endpoint}`}>
-                <Text className='comicDetailTabs__chapters'>
+                <Typography.Text className='comicDetailTabs__chapters'>
                   {chapter.chapter_title}
-                </Text>
+                </Typography.Text>
               </Link>
             </List.Item>
           )}
         />
-      </TabPane>
+      </Tabs.TabPane>
     </Tabs>
   )
 }
