@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'https://mangamint.kaedenoki.net/api'
+const baseUrl = 'https://komikstation.co/'
 
 class mangaApi {
   static getLatestManga = async () => {
