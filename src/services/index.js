@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'https://komikstation.co/'
+const baseUrl = 'https://weeb-scraper.onrender.com/api'
 
 class mangaApi {
   static getLatestManga = async () => {
